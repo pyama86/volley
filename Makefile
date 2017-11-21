@@ -42,8 +42,7 @@ ghr: ## Upload to Github releases without token check
 	@echo "$(INFO_COLOR)==> $(RESET)$(BOLD)Releasing for Github$(RESET)"
 	ghr -u pyama86 v$(VERSION)-$(REVISION) pkg
 
-dist: build ## Upload to Github releases
-	@test -z $(GITHUB_TOKEN) || test -z $(GITHUB_API) || $(MAKE) ghr
+dist: build ghr ## Upload to Github releases
 
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "$(INFO_COLOR)%-30s$(RESET) %s\n", $$1, $$2}'

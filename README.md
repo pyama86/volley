@@ -4,7 +4,10 @@ snmptrapをwakerに通知するラッパーです。
 
 ## Usage
 
-
+- snmptrapd
+```bash
+traphandle default /usr/local/bin/volley -w https://waker.example.com/topics/XXXXX/alertmanager.json
+```
 
 ## Install
 
